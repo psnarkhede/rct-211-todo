@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletetodoapi, gettodoapi, togglestatetodoapi } from "../Redux/Todo/todoaction";
+import  { deletetodoapi,togglestatetodoapi, gettodoapi } from "../Redux/Todo/todoaction";
 import Todo from "./Todo";
 import Todoinput from "./Todoinput";
 
@@ -12,7 +12,8 @@ const Todos = () => {
   const { todo, isLoading, error } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(gettodoapi)
+    dispatch(gettodoapi())
+    
   }, []);
 
     const handledelet = (id) => {
@@ -29,8 +30,7 @@ const Todos = () => {
     <div>
         <Todoinput/>
       <h3>Todos</h3>
-      {todo
-        ? todo.map((el) => (
+      {todo?.map((el) => (
             <div
               key={el.id}
               style={{
@@ -45,8 +45,7 @@ const Todos = () => {
               {el.isCompleted ? <s>{el.todo}</s> : <p>{el.todo}</p>}
               <button onClick={() => handledelet(el.id)}>Delete</button>
             </div>
-          ))
-        : ""}
+          ))}
     </div>
   );
 };

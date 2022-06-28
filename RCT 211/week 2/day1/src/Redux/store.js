@@ -1,9 +1,8 @@
-import  {compose, legacy_createStore} from "redux";
+import  {compose, legacy_createStore, applyMiddleware} from "redux";
 import { todoreducer } from "./Todo/todoreducer";
-import { applyMiddleware } from "redux";
 import  thunk from "redux-thunk";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 /*const customMiddleware = ({dispatch}) => (next) => (action) => {
     if(typeof action === "function"){

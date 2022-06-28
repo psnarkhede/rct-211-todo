@@ -1,7 +1,8 @@
 import { ADD_TODO_ERROR, ADD_TODO_LOADING, ADD_TODO_SUCCESS, DELETE_TODO_ERROR, DELETE_TODO_LOADING, DELETE_TODO_SUCCESS, GET_TODO_ERROR, GET_TODO_LOADING, GET_TODO_SUCCESS, TOGGLE_STATE_TODO_ERROR, TOGGLE_STATE_TODO_LOADING, TOGGLE_STATE_TODO_SUCCESS } from "./todoactiontypes";
 import axios from "axios";
 
-export const gettodoapi = (dispatch) => {
+
+export const gettodoapi = () => (dispatch) => {
     dispatch({type:GET_TODO_LOADING})
 
     axios
@@ -11,7 +12,7 @@ export const gettodoapi = (dispatch) => {
 
 }
 
-export const addtodoapi = (dispatch,data) => {
+export const addtodoapi = (data) => (dispatch) => {
     dispatch({type:ADD_TODO_LOADING})
 
     axios
@@ -23,7 +24,7 @@ export const addtodoapi = (dispatch,data) => {
     .catch(() => dispatch({type:ADD_TODO_ERROR}))
 }
 
-export const deletetodoapi = (dispatch,id) => {
+export const deletetodoapi = (id) => (dispatch) => {
     dispatch({type:DELETE_TODO_LOADING})
 
     axios
@@ -36,7 +37,8 @@ export const deletetodoapi = (dispatch,id) => {
     )
 }
 
-export const togglestatetodoapi = (dispatch,id,data) => {
+export const togglestatetodoapi = (id,data) => (dispatch) => {
+    
     dispatch({type:TOGGLE_STATE_TODO_LOADING})
 
     axios
