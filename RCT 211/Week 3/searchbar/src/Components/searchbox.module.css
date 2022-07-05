@@ -1,0 +1,23 @@
+.box{
+    height:auto;
+    max-height: 200px;
+    width:30%;
+    margin:auto;
+    border:1px solid red;
+    overflow:auto;
+}
+
+.innerbox{
+    text-align: left;
+    padding-left: 20px;
+    height:40px;
+    display:flex;
+    align-items: center;
+}
+
+.innerbox:hover{
+    background-color: lightgreen;
+    color: black;
+    font-size:18px;
+    font-weight: 500;
+}
